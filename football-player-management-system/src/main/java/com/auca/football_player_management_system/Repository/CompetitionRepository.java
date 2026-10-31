@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import com.auca.football_player_management_system.Domain.Competition;
 
 public interface CompetitionRepository extends JpaRepository<Competition, UUID> {
-    @Query("SELECT comp FROM Competition comp WHERE comp WHERE comp.clubs IS EMPTY")
+    @Query("SELECT comp FROM Competition comp WHERE comp.clubs IS EMPTY")
     List<Competition> findUnusedCompetition();
 }

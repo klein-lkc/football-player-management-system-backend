@@ -10,6 +10,6 @@ import com.auca.football_player_management_system.Domain.Player;
 
 public interface PlayerReposistory extends JpaRepository<Player, UUID> {
     List<Player> findByLastNameIgnoreCaseOrderByFirstNameAsc(String lastName);
-    @Query("SELCT DISTINCT c.player FROM Contract c WHERE c.club.id = :clubId")
-    List<Player> findPlayersByClubId(@Param ("cludId") UUID cludId); 
+    @Query("SELECT DISTINCT c.player FROM Contract c WHERE c.club.id = :clubId")
+    List<Player> findPlayersByClubId(@Param ("clubId") UUID cludId); 
 }

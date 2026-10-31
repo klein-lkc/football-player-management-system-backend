@@ -10,6 +10,6 @@ import com.auca.football_player_management_system.Domain.Club;
 
 public interface ClubRepository extends JpaRepository<Club, UUID> {
     // check club by competition
-    @Query("SELECT c JOIN c.competitions comp WHERE LOWER(comp.name) LIKE LOWER(CONCAT('%' , :name, '%'))")
+    @Query("SELECT  DISTINCT c FROM Club c JOIN c.competitions comp WHERE LOWER(comp.name) LIKE LOWER(CONCAT('%' , :name, '%'))")
     List<Club> findClubsByCompetitonName(@Param("name") String name);
 }
