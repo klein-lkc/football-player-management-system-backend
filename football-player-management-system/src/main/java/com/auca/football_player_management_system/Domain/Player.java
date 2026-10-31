@@ -17,7 +17,7 @@ public class Player {
     private UUID id;
     private String firstName;
     private String lastName;
-    @Column(unique = true)
+    @Column(name = "licence_number", unique = true)
     private String licenceNumber;
     private String position;
     private String preferredFoot;
@@ -41,10 +41,10 @@ public class Player {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    public String getlicenceNumber() {
+    public String getLicenceNumber() {
         return licenceNumber;
     }
-    public void setlicenceNumber(String licenceNumber) {
+    public void setLicenceNumber(String licenceNumber) {
         this.licenceNumber = licenceNumber;
     }
     public String getPosition() {
