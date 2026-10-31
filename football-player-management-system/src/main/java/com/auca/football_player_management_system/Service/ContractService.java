@@ -1,5 +1,6 @@
 package com.auca.football_player_management_system.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -7,6 +8,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.auca.football_player_management_system.Domain.Contract;
+import com.auca.football_player_management_system.Domain.ContractStatus;
 import com.auca.football_player_management_system.Repository.ContractRepository;
 
 @Service 
@@ -37,5 +39,15 @@ public class ContractService {
     // check if by ID if Contract exists
     public boolean existsById(UUID id){
         return contractRepository.existsById(id);
+    }
+
+    // get contract status 
+    public List<Contract> getContractsBYStatus(ContractStatus status){
+        return contractRepository.findByStatusOrderBySigningDateAsc(status);
+    }
+
+    // get conract between date
+    public List<Contract> getContractsBetweenDates(LocalDate start, LocalDate endDate){
+        return contractRepository.findBySigningDateBetweenOrderBySigningDateAsc(start, endDate);
     }
 }

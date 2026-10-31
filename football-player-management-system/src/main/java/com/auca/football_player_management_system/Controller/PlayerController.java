@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.auca.football_player_management_system.Domain.Player;
@@ -74,5 +75,12 @@ public class PlayerController {
         }
         playerService.deletePlayer(id);
         return ResponseEntity.status(HttpStatus.OK).body("player is deleted");
+    }
+
+    // to find lastName
+    @GetMapping("/by-last-name")
+    public ResponseEntity<List<Player>> getPlayersByLastName(@RequestParam  String lastName){
+        List<Player> players = playerService.getPlayerByLastName(lastName);
+        return ResponseEntity.status(HttpStatus.OK).body(players);
     }
 }

@@ -39,5 +39,10 @@ public class PlayerService {
     public boolean existsById(UUID id){
         return playerReposistory.existsById(id);
     }
- 
+
+    // get Players By lastName
+    public List<Player> getPlayerByLastName(String lastName){
+        return playerReposistory.findByLastNameIgnoreCaseOrderByFirstNameAsc(lastName);
+    }
+    
 }

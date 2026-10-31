@@ -1,5 +1,6 @@
 package com.auca.football_player_management_system.Controller;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -13,9 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.auca.football_player_management_system.Domain.Contract;
+import com.auca.football_player_management_system.Domain.ContractStatus;
 import com.auca.football_player_management_system.Service.ContractService;
 
 @RestController 
@@ -74,4 +77,23 @@ public class ContractController {
         contractService.deleteContract(id);
         return ResponseEntity.status(HttpStatus.OK).body("Contract is deleted");
     }
+
+    // 6. get contract by  status
+    @GetMapping("/by-status")
+    public ResponseEntity<List<Contract>> getContractsByStatus(@RequestParam ContractStatus status){
+        List<Contract> contracts = contractService.getContractsBYStatus(status);
+        return ResponseEntity.status(HttpStatus.OK).body(contracts);
+    }
+
+    // get contract by start date and end date
+    @GetMapping("/between")
+    public ResponseEntity<List<Contract>> getContractsBetween(
+        @RequestParam String start,
+        @RequestParam String end){
+            LocalDate startDate = LocalDate.parse(start);
+            LocalDate endDate = LocalDate.parse(end);
+
+            List<Contract> contracts = contractService.getContractsBetweenDates(startDate, endDate);
+            return ResponseEntity.status(HttpStatus.OK).body(contracts);
+        }
 }
