@@ -78,11 +78,14 @@ public class ContractController {
     // 5 .Delete a Contract
     @DeleteMapping ("/delete/{id}")
     public ResponseEntity<String> deleteContract(@PathVariable UUID id){
-        if(!contractService.existsById(id)){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("The contract with that id does not exist");
-        }
-        contractService.deleteContract(id);
-        return ResponseEntity.status(HttpStatus.OK).body("Contract is deleted");
+       String result = contractService.deleteContract(id);
+       if (result.equals("The contract with id does not exist")) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
+       }
+       if(result.equals("That contract has performnce reports, delete them first")){
+        return ResponseEntity.status((HttpStatus.CONFLICT)).body(result);
+       }
+       return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     // 6. get contract by  status

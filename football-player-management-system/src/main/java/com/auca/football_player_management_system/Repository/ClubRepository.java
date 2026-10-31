@@ -12,4 +12,8 @@ public interface ClubRepository extends JpaRepository<Club, UUID> {
     // check club by competition
     @Query("SELECT  DISTINCT c FROM Club c JOIN c.competitions comp WHERE LOWER(comp.name) LIKE LOWER(CONCAT('%' , :name, '%'))")
     List<Club> findClubsByCompetitonName(@Param("name") String name);
+
+    boolean existsByStadiumStadiumNumber(int stadiumNumber);
+// check if a club already has a stadium
+   Club findByStadiumStadiumNumber(int stadiumNumber);
 }

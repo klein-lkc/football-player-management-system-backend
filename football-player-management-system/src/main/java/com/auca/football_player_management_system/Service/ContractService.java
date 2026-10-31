@@ -5,11 +5,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.auca.football_player_management_system.Domain.Contract;
 import com.auca.football_player_management_system.Domain.ContractStatus;
 import com.auca.football_player_management_system.Repository.ContractRepository;
+import com.auca.football_player_management_system.Repository.PerformanceReportRepository;
 
 @Service 
 public class ContractService {
@@ -18,6 +20,9 @@ public class ContractService {
     public ContractService(ContractRepository contractRepository){
         this.contractRepository=contractRepository;
     }
+
+    @Autowired 
+    private PerformanceReportRepository performanceReportRepository;
 
      // save a Contract
     public String saveContract(Contract contract){
@@ -50,8 +55,17 @@ public class ContractService {
         return contractRepository.findById(id);
     }
     //delete a Contract by UUID 
-    public void deleteContract(UUID ID){
+    public String deleteContract(UUID ID){
+        if (!contractRepository.existsById(ID)) {
+            return "The contract with that id does nnot exist";
+        }
+
+        // verifie if it exist a rapport for a contract
+        if(performanceReportRepository.existsByContractId(ID)){
+            return "That contract has performance reports, delete them first";
+        }
         contractRepository.deleteById(ID);
+        return "Contract deleted successfully";
     }
     // check if by ID if Contract exists
     public boolean existsById(UUID id){
