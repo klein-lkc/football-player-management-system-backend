@@ -75,4 +75,11 @@ public class CompetitionController {
         competitionService.deleteCompetition(id);
         return ResponseEntity.status(HttpStatus.OK).body("Competition is deleted");
     }
+
+    // Competitions that no club holds
+    @GetMapping("/unused")
+    public ResponseEntity<List<Competition>> getUnusedCompetitions(){
+        List<Competition> comps = competitionService.getUnusedCompetions();
+        return ResponseEntity.status(HttpStatus.OK).body(comps);
+    }
 }

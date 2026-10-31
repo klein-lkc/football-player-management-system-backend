@@ -75,4 +75,10 @@ public class StadiumController {
         return ResponseEntity.status(HttpStatus.OK).body("Stadium is deleted");
     }
 
+    // free stadium
+    @GetMapping("/free")
+    public ResponseEntity<List<Stadium>> getFreeStadiums(){
+        List<Stadium> stadiums =stadiumService.getFreeStadiums();
+        return ResponseEntity.status(HttpStatus.OK).body(stadiums);
+    }
 }

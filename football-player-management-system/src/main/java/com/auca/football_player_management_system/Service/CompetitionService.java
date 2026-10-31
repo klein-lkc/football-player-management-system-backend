@@ -37,4 +37,10 @@ public class CompetitionService {
     public boolean existsById(UUID id){
         return competitionRepository.existsById(id);
     }
+
+    // Competitions that no club holds
+
+    public List<Competition> getUnusedCompetions(){
+        return competitionRepository.findUnusedCompetition();
+    }
 }

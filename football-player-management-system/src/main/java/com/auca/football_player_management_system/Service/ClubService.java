@@ -39,5 +39,10 @@ public class ClubService {
     public boolean existsById(UUID id){
         return clubRepository.existsById(id);
     }
+
+    //  get club by competition
+    public  List<Club> getClubsByCompetiotionName(String name){
+        return clubRepository.findClubsByCompetitonName(name);
+    }
     
 }

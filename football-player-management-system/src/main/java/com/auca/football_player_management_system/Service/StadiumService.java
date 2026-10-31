@@ -38,4 +38,9 @@ public class StadiumService {
     public boolean existsById(UUID id){
         return stadiumRepository.existsById(id);
     }
+
+    // free stadiums 
+    public List<Stadium> getFreeStadiums(){
+        return stadiumRepository.findFreeStadiums();
+    }
 }

@@ -44,5 +44,10 @@ public class PlayerService {
     public List<Player> getPlayerByLastName(String lastName){
         return playerReposistory.findByLastNameIgnoreCaseOrderByFirstNameAsc(lastName);
     }
+
+    // get player by club id 
+   public List<Player> getPlayersByClubId(UUID cludId){
+    return playerReposistory.findPlayersByClubId(cludId);
+   }
     
 }

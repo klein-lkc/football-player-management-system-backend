@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.auca.football_player_management_system.Domain.Club;
@@ -74,6 +75,13 @@ public class ClubController {
         }
         clubService.deleteClub(id);
         return ResponseEntity.status(HttpStatus.OK).body("Club is deleted");
+    }
+
+    // get club by competition
+    @GetMapping("/by-competition")
+    public ResponseEntity<List<Club>> getClubsByCompetition(@RequestParam String name){
+        List<Club> clubs = clubService.getClubsByCompetiotionName(name);
+        return ResponseEntity.status(HttpStatus.OK).body(clubs);
     }
 
 }

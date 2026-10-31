@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.auca.football_player_management_system.Domain.Player;
+import com.auca.football_player_management_system.Service.ClubService;
 import com.auca.football_player_management_system.Service.PlayerService;
 
 @RestController 
@@ -27,6 +29,8 @@ public class PlayerController {
     public PlayerController(PlayerService playerService){
         this.playerService=playerService;
     }
+    @Autowired 
+    private ClubService clubservice;
 
     //1. save post player 
     @PostMapping("/save")
@@ -81,6 +85,16 @@ public class PlayerController {
     @GetMapping("/by-last-name")
     public ResponseEntity<List<Player>> getPlayersByLastName(@RequestParam  String lastName){
         List<Player> players = playerService.getPlayerByLastName(lastName);
+        return ResponseEntity.status(HttpStatus.OK).body(players);
+    }
+
+    // get player by club ID 
+    @GetMapping("/of-club/{clubId}")
+    public ResponseEntity<?> getPlayersOfClub(@PathVariable UUID clubId){
+        if(!clubservice.existsById(clubId)){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("The club with that id does not exist");
+        }
+        List<Player> players = playerService.getPlayersByClubId(clubId);
         return ResponseEntity.status(HttpStatus.OK).body(players);
     }
 }
