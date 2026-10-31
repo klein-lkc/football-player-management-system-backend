@@ -43,4 +43,6 @@ public class CompetitionService {
     public List<Competition> getUnusedCompetions(){
         return competitionRepository.findUnusedCompetition();
     }
+
+    // add competition to club
 }

@@ -10,4 +10,6 @@ import com.auca.football_player_management_system.Domain.ContractStatus;
 public interface ContractRepository extends JpaRepository<Contract, UUID> {
     List<Contract> findByStatusOrderBySigningDateAsc(ContractStatus status);
     List<Contract> findBySigningDateBetweenOrderBySigningDateAsc(LocalDate startDate, LocalDate endDate);
+    // check if the contact with a club in specific date
+   boolean existsByClubIdAndSigningDateAndStatusNot(UUID clubId, LocalDate signingDate, ContractStatus status);
 }

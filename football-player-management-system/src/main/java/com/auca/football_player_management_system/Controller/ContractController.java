@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -32,8 +33,14 @@ public class ContractController {
     //1. save post Contract 
     @PostMapping("/save")
     public ResponseEntity<String> saveContract(@RequestBody Contract contract){
-        contractService.saveContract(contract);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Contract saved successsfully");
+      String result = contractService.saveContract(contract);
+      if(result.equals("Contract date cannot be in the past")){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
+      }
+      if(result.equals("Club already signs a contract on that date")){
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(result);
+      }
+        return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
     // 2. get all Contract
@@ -96,4 +103,21 @@ public class ContractController {
             List<Contract> contracts = contractService.getContractsBetweenDates(startDate, endDate);
             return ResponseEntity.status(HttpStatus.OK).body(contracts);
         }
+
+    // update contract status
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<String> updateContractStatus(@PathVariable UUID id, @RequestParam ContractStatus status) {
+    String result = contractService.updateContractStatus(id, status);
+
+    if (result.equals("NOT_FOUND")) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("The contract with that id does not exist");
+    }
+    if (result.startsWith("Cannot change status")) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
+    }
+
+    return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    
 }

@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -83,5 +84,35 @@ public class ClubController {
         List<Club> clubs = clubService.getClubsByCompetiotionName(name);
         return ResponseEntity.status(HttpStatus.OK).body(clubs);
     }
+
+    // add competition to a club 
+    @PutMapping("/{clubId}/competitions/{competitionId}")
+    public ResponseEntity<String> addCompetitionToClub(@PathVariable UUID clubId, @PathVariable UUID competitionId) {
+    String result = clubService.addCompetitionToClub(clubId, competitionId);
+
+    if (result.equals("The club with that id does not exist") || result.equals("That competition does not exist")) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
+    }
+    if (result.equals("The club already has that competition")) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(result);
+    }
+
+    return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    // move a club to a stadium 
+    @PatchMapping("/{clubId}/stadium")
+    public ResponseEntity<String> moveClubToStadium(@PathVariable UUID clubId, @RequestParam int stadiumNumber) {
+    String result = clubService.moveClubToStadium(clubId, stadiumNumber);
+
+    if (result.contains("does not exist")) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
+    }
+    if (result.equals("That stadium is taken by another club")) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(result);
+    }
+
+    return ResponseEntity.status(HttpStatus.OK).body(result);
+}
 
 }
