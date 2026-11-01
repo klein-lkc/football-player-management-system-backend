@@ -6,6 +6,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.auca.football_player_management_system.Domain.Contract;
@@ -142,5 +144,8 @@ public class ContractService {
         return "Contract updated successfully";
     }
 
+    public Page<Contract> getContractsPaged(Pageable pageable) {
+    return contractRepository.findAll(pageable);
+}
 
 }

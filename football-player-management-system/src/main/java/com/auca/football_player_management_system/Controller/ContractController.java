@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -135,5 +137,11 @@ public class ContractController {
             String result = contractService.cancelContractsDay(clubId, targetDate);
             return ResponseEntity.status(HttpStatus.OK).body(result);
         }
+
+    @GetMapping("/page")
+public ResponseEntity<Page<Contract>> getContractsPage(Pageable pageable) {
+    Page<Contract> contractPage = contractService.getContractsPaged(pageable);
+    return ResponseEntity.status(HttpStatus.OK).body(contractPage);
+}
     
 }

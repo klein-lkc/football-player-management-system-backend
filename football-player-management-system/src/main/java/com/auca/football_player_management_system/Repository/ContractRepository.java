@@ -3,6 +3,9 @@ package com.auca.football_player_management_system.Repository;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -27,4 +30,10 @@ public interface ContractRepository extends JpaRepository<Contract, UUID> {
            "WHERE c.club.id = :clubId AND c.signingDate = :date " +
            "AND c.status <> com.auca.football_player_management_system.Domain.ContractStatus.SIGNED")
     int cancelContractsForDay(@Param("clubId") UUID clubId, @Param("date") LocalDate date);
+
+    long countBySigningDate(LocalDate signingDate);
+
+    long countByStatus(ContractStatus status);
+
+    Page<Contract> findAll(Pageable pageable);
 }

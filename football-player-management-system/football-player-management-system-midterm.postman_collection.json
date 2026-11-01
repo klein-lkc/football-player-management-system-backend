@@ -1,0 +1,1479 @@
+{
+  "info": {
+    "_postman_id": "13d033cf-24ea-4e8b-8b5b-f610fb44db2a",
+    "name": "football-player-management-system-midterm",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58382899",
+    "_collection_link": "https://go.postman.co/collection/58382899-13d033cf-24ea-4e8b-8b5b-f610fb44db2a?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "seed_data",
+      "item": [
+        {
+          "name": "add stadium",
+          "item": [
+            {
+              "name": "New Request",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"stadiumNumber\": 1, \"name\": \"Amahoro Stadium\" }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/stadiums/update/d8b843e9-b642-4624-90ad-2c1bae2c4b1e",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "stadiums",
+                    "update",
+                    "d8b843e9-b642-4624-90ad-2c1bae2c4b1e"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"stadiumNumber\": 2, \"name\": \"Kigali Pele Stadium\" }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/stadiums/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "stadiums",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"stadiumNumber\": 4, \"name\": \"Busanza Stadium\" }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/stadiums/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "stadiums",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/stadiums/all",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "stadiums",
+                    "all"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "add club",
+          "item": [
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"clubName\": \"APR FC\",\r\n  \"managerName\": \"Taleb Abderrahim\",\r\n  \"city\": \"Kigali\",\r\n  \"stadium\": { \"id\": \"d8b843e9-b642-4624-90ad-2c1bae2c4b1e\" },\r\n  \"competitions\": [\r\n    { \"id\": \"0ef41a84-92a6-4a30-82b9-dd7a88c4c87e\" },\r\n    { \"id\": \"d9475a3c-091a-4dc1-98ed-228928c6b31c\" }\r\n  ]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/clubs/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "clubs",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"clubName\": \"Rayon Sports\",\r\n  \"managerName\": \"Francis Haringingo\",\r\n  \"city\": \"Nyanza\",\r\n  \"stadium\": { \"id\": \"312590c8-12fc-4c0a-b3d2-e6d281a284c5\" },\r\n  \"competitions\": [\r\n    { \"id\": \"b9ef7fa2-3c89-42e6-9955-e0742d2e6b81\" }\r\n  ]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/clubs/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "clubs",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"clubName\": \"Mukura VS\",\r\n  \"managerName\": \"Riyek (Rkyek) Jaafar\",\r\n  \"city\": \"Huye\",\r\n  \"stadium\": { \"id\": \"16e8e902-52fb-42d2-ba22-390fa6e3d46e\" },\r\n  \"competitions\": []\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/clubs/",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "clubs",
+                    ""
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/clubs/all",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "clubs",
+                    "all"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"clubName\": \"Police FC\",\r\n  \"managerName\": \"Riyek (Rkyek) Jaafar\",\r\n  \"city\": \"Kibungo\",\r\n  \"stadium\": { \"id\": \"16e8e902-52fb-42d2-ba22-390fa6e3d46e\" },\r\n  \"competitions\": []\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/clubs/update/d183903d-0c15-4bbb-8572-c372cb895772",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "clubs",
+                    "update",
+                    "d183903d-0c15-4bbb-8572-c372cb895772"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "add competition",
+          "item": [
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"name\": \"CAF Champions League\" }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/competitions/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "competitions",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"name\": \"Second Division\" }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/competitions/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "competitions",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"name\": \"Rwanda Premier League\" }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/competitions/update/0ef41a84-92a6-4a30-82b9-dd7a88c4c87e",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "competitions",
+                    "update",
+                    "0ef41a84-92a6-4a30-82b9-dd7a88c4c87e"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/competitions/all",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "competitions",
+                    "all"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "add player",
+          "item": [
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"firstName\": \"Klein\", \"lastName\": \"Lendzondzo\", \"licenceNumber\": \"FERWAFA-2210\", \"position\": \"Midfielder\", \"preferredFoot\": \"Right\" }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/players/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "players",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"firstName\": \"Christ\", \"lastName\": \"Lendzondzo\", \"licenceNumber\": \"FERWAFA-2211\", \"position\": \"Forward\", \"preferredFoot\": \"Left\" }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/players/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "players",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"firstName\": \"Richard\", \"lastName\": \"Syre\", \"licenceNumber\": \"FERWAFA-2212\", \"position\": \"Goalkeeper\", \"preferredFoot\": \"Right\" }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/players/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "players",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"firstName\": \"Stephane\", \"lastName\": \"Orochimaru\", \"licenceNumber\": \"FERWAFA-2213\", \"position\": \"Defender\", \"preferredFoot\": \"Left\" }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/players/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "players",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"firstName\": \"Kelly\", \"lastName\": \"leNonchaleux\", \"licenceNumber\": \"FERWAFA-2214\", \"position\": \"Forward\", \"preferredFoot\": \"Right\" }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/players/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "players",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/players/all",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "players",
+                    "all"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"firstName\": \"Kelly\", \"lastName\": \"leNonchaleux\", \"licenceNumber\": \"FERWAFA-2214\", \"position\": \"Forward\", \"preferredFoot\": \"Right\" }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/players/update/1bdbd57d-bc1b-44ab-a27d-6fef795147ab",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "players",
+                    "update",
+                    "1bdbd57d-bc1b-44ab-a27d-6fef795147ab"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "add contract",
+          "item": [
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"signingDate\": \"2026-10-03\", \"status\": \"OFFERED\", \"durationMonths\": 12, \"monthlySalary\": 1500,\r\n  \"player\": { \"id\": \"e275640d-1cb0-40df-8e2e-97582dd1d966\" },\r\n  \"club\": { \"id\": \"0c50b1f4-f53d-49c7-a360-747c002da4f1\" } }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/contracts/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "contracts",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"signingDate\": \"2026-10-12\", \"status\": \"NEGOTIATING\", \"durationMonths\": 12, \"monthlySalary\": 1600,\r\n  \"player\": { \"id\": \"e275640d-1cb0-40df-8e2e-97582dd1d966\" },\r\n  \"club\": { \"id\": \"0c50b1f4-f53d-49c7-a360-747c002da4f1\" } }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/contracts/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "contracts",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"signingDate\": \"2026-11-02\", \"status\": \"SIGNED\", \"durationMonths\": 24, \"monthlySalary\": 1800,\r\n  \"player\": { \"id\": \"e275640d-1cb0-40df-8e2e-97582dd1d966\" },\r\n  \"club\": { \"id\": \"0c50b1f4-f53d-49c7-a360-747c002da4f1\" } }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/contracts/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "contracts",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"signingDate\": \"2026-10-20\", \"status\": \"SIGNED\", \"durationMonths\": 18, \"monthlySalary\": 2000,\r\n  \"player\": { \"id\": \"15c52e0d-0f12-48ec-8a3d-e1120ae2ed07\" },\r\n  \"club\": { \"id\": \"0c50b1f4-f53d-49c7-a360-747c002da4f1\" } }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/contracts/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "contracts",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"signingDate\": \"2026-10-20\", \"status\": \"TERMINATED\", \"durationMonths\": 6, \"monthlySalary\": 1200,\r\n  \"player\": { \"id\": \"f9772b2d-8291-4ace-91f1-51e8339f2fe6\" },\r\n  \"club\": { \"id\": \"0c50b1f4-f53d-49c7-a360-747c002da4f1\" } }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/contracts/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "contracts",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"signingDate\": \"2026-10-25\", \"status\": \"NEGOTIATING\", \"durationMonths\": 12, \"monthlySalary\": 1300,\r\n  \"player\": { \"id\": \"f9772b2d-8291-4ace-91f1-51e8339f2fe6\" },\r\n  \"club\": { \"id\": \"d9e92716-2f0f-42b6-bde3-ddec940267fe\" } }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/contracts/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "contracts",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"signingDate\": \"2026-11-05\", \"status\": \"SIGNED\", \"durationMonths\": 36, \"monthlySalary\": 1700,\r\n  \"player\": { \"id\": \"a3c51cfd-7f3d-45d7-a5e4-6c35619727cb\" },\r\n  \"club\": { \"id\": \"d9e92716-2f0f-42b6-bde3-ddec940267fe\" } }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/contracts/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "contracts",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"signingDate\": \"2026-10-28\", \"status\": \"OFFERED\", \"durationMonths\": 12, \"monthlySalary\": 1100,\r\n  \"player\": { \"id\": \"1bdbd57d-bc1b-44ab-a27d-6fef795147ab\" },\r\n  \"club\": { \"id\": \"d183903d-0c15-4bbb-8572-c372cb895772\" } }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/contracts/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "contracts",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"signingDate\": \"2026-11-10\", \"status\": \"TERMINATED\", \"durationMonths\": 6, \"monthlySalary\": 1000,\r\n  \"player\": { \"id\": \"1bdbd57d-bc1b-44ab-a27d-6fef795147ab\" },\r\n  \"club\": { \"id\": \"d183903d-0c15-4bbb-8572-c372cb895772\" } }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/contracts/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "contracts",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{ \"signingDate\": \"2026-11-15\", \"status\": \"OFFERED\", \"durationMonths\": 12, \"monthlySalary\": 1900,\r\n  \"player\": { \"id\": \"15c52e0d-0f12-48ec-8a3d-e1120ae2ed07\" },\r\n  \"club\": { \"id\": \"d9e92716-2f0f-42b6-bde3-ddec940267fe\" } }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/api/contracts/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "contracts",
+                    "save"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/api/contracts/all",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "contracts",
+                    "all"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Derived queries",
+      "item": [
+        {
+          "name": "B1",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/players/by-last-name?lastName=lendzondzo",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "players",
+                "by-last-name"
+              ],
+              "query": [
+                {
+                  "key": "lastName",
+                  "value": "lendzondzo"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "B2",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/contracts/by-status?status=OFFERED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "contracts",
+                "by-status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "OFFERED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "B3",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/contracts/between?start=2026-10-01&end=2026-10-31",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "contracts",
+                "between"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "2026-10-01"
+                },
+                {
+                  "key": "end",
+                  "value": "2026-10-31"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "JPQL with joins",
+      "item": [
+        {
+          "name": "C1",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"stadiumNumber\": 2, \"name\": \"Kigali Pele Stadium\" }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/clubs/by-competition?name=peace",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "clubs",
+                "by-competition"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "peace"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "C2",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/stadiums/free",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "stadiums",
+                "free"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "C3",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/competitions/unused",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "competitions",
+                "unused"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "C4",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/players/of-club/d183903d-0c15-4bbb-8572-c372cb895772",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "players",
+                "of-club",
+                "d183903d-0c15-4bbb-8572-c372cb895772"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Business rule",
+      "item": [
+        {
+          "name": "D1",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"signingDate\": \"2026-11-15\",\r\n  \"status\": \"SIGNED\",\r\n  \"durationMonths\": 8,\r\n  \"monthlySalary\": 900,\r\n  \"player\": { \"id\": \"1bdbd57d-bc1b-44ab-a27d-6fef795147ab\" },\r\n  \"club\": { \"id\": \"0c50b1f4-f53d-49c7-a360-747c002da4f1\" }\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/contracts/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "contracts",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D2",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/contracts/0d7b969b-3a0f-4043-a68f-f340a9d9c8e2/status?status=NEGOTIATING",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "contracts",
+                "0d7b969b-3a0f-4043-a68f-f340a9d9c8e2",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "NEGOTIATING"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D3",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "text"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/clubs/d183903d-0c15-4bbb-8572-c372cb895772/competitions/e94cc1e0-744d-4b5e-9cbe-2a66f94f497d",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "clubs",
+                "d183903d-0c15-4bbb-8572-c372cb895772",
+                "competitions",
+                "e94cc1e0-744d-4b5e-9cbe-2a66f94f497d"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D4",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "text"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/clubs/d9e92716-2f0f-42b6-bde3-ddec940267fe/stadium?stadiumNumber=4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "clubs",
+                "d9e92716-2f0f-42b6-bde3-ddec940267fe",
+                "stadium"
+              ],
+              "query": [
+                {
+                  "key": "stadiumNumber",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Performance report",
+      "item": [
+        {
+          "name": "E1",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"testName\": \"Sprint test\",\r\n    \"comments\": \"Average of three runs\",\r\n    \"score\": 88\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/performance-reports/save?contractId=dc5f1433-2949-434d-877f-13462d0519a6",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "performance-reports",
+                "save"
+              ],
+              "query": [
+                {
+                  "key": "contractId",
+                  "value": "dc5f1433-2949-434d-877f-13462d0519a6"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "E2",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/performance-reports/player/FERWAFA-2210",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "performance-reports",
+                "player",
+                "FERWAFA-2210"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "E3",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/performance-reports/delete/af4d39c5-d9fc-43ea-b83f-d1839d810d62",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "performance-reports",
+                "delete",
+                "af4d39c5-d9fc-43ea-b83f-d1839d810d62"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "reports and bulk updates",
+      "item": [
+        {
+          "name": "F1",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "text"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/contracts/stats/by-status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "contracts",
+                "stats",
+                "by-status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "F2",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/contracts/cancel-day?clubId=d9e92716-2f0f-42b6-bde3-ddec940267fe&date=2026-11-15",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "contracts",
+                "cancel-day"
+              ],
+              "query": [
+                {
+                  "key": "clubId",
+                  "value": "d9e92716-2f0f-42b6-bde3-ddec940267fe"
+                },
+                {
+                  "key": "date",
+                  "value": "2026-11-15"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "test1",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/dashboard/summary",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "dashboard",
+                "summary"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "test2",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/contracts/page?page=0&size=5&sort=signingDate,desc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "contracts",
+                "page"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "5"
+                },
+                {
+                  "key": "sort",
+                  "value": "signingDate,desc"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
