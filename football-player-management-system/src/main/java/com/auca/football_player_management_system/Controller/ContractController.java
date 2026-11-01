@@ -65,24 +65,21 @@ public class ContractController {
     // 4. update Contract 
     @PutMapping("/update/{id}")
     public ResponseEntity<String> updateContract(@PathVariable UUID id, @RequestBody Contract updatedContract){
-        if(!contractService.existsById(id)){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("The contract with that id does not exist");
+        String result = contractService.updateContract(id, updatedContract);
+        if(result.equals("The contract with that id does not exist")){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
         }
-        else{
-            updatedContract.setId(id);
-            contractService.saveContract(updatedContract);
-            return ResponseEntity.status(HttpStatus.OK).body("Contract is updated");
-        }
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     // 5 .Delete a Contract
     @DeleteMapping ("/delete/{id}")
     public ResponseEntity<String> deleteContract(@PathVariable UUID id){
        String result = contractService.deleteContract(id);
-       if (result.equals("The contract with id does not exist")) {
+       if (result.equals("The contract with that id does not exist")) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(result);
        }
-       if(result.equals("That contract has performnce reports, delete them first")){
+       if(result.equals("That contract has performance reports, delete them first")){
         return ResponseEntity.status((HttpStatus.CONFLICT)).body(result);
        }
        return ResponseEntity.status(HttpStatus.OK).body(result);
@@ -122,5 +119,21 @@ public class ContractController {
     return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
+    // get contract count by status
+    @GetMapping ("/stats/by-status")
+    public ResponseEntity<List<Object[]>> getContractsStatsByStatus(){
+        List<Object[]> stats = contractService.getContractsStatsByStatus();
+        return ResponseEntity.status(HttpStatus.OK).body(stats);
+    }
+
+    // cancellation of contracts on a specific date
+    @PatchMapping("/cancel-day")
+    public ResponseEntity<String> cancelContractsDay(
+        @RequestParam UUID clubId,
+        @RequestParam String date){
+            LocalDate targetDate = LocalDate.parse(date);
+            String result = contractService.cancelContractsDay(clubId, targetDate);
+            return ResponseEntity.status(HttpStatus.OK).body(result);
+        }
     
 }

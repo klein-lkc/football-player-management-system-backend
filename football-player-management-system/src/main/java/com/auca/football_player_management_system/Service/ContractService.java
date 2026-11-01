@@ -13,6 +13,8 @@ import com.auca.football_player_management_system.Domain.ContractStatus;
 import com.auca.football_player_management_system.Repository.ContractRepository;
 import com.auca.football_player_management_system.Repository.PerformanceReportRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service 
 public class ContractService {
  
@@ -23,6 +25,8 @@ public class ContractService {
 
     @Autowired 
     private PerformanceReportRepository performanceReportRepository;
+
+
 
      // save a Contract
     public String saveContract(Contract contract){
@@ -57,7 +61,7 @@ public class ContractService {
     //delete a Contract by UUID 
     public String deleteContract(UUID ID){
         if (!contractRepository.existsById(ID)) {
-            return "The contract with that id does nnot exist";
+            return "The contract with that id does not exist";
         }
 
         // verifie if it exist a rapport for a contract
@@ -112,6 +116,31 @@ public class ContractService {
 
     }
     
+    // get contract count by status
+    public List<Object[]> getContractsStatsByStatus(){
+        return contractRepository.getContractsCountBystatus();
+    }
+
+    // cancellation of contracts on a specific date
+    @Transactional
+    public String cancelContractsDay(UUID clubId, LocalDate date){
+        int updatedCount = contractRepository.cancelContractsForDay(clubId, date);
+        return updatedCount + " contracts have been cancelled for the specified date.";
+    }
+
+    // fonction to update contract 
+    public String updateContract(UUID id, Contract updatedContract){
+        Optional<Contract> existingContractOpt = contractRepository.findById(id);
+        if(!existingContractOpt.isPresent()){
+            return "The contract with that id does not exist";
+        }
+        Contract existingContract = existingContractOpt.get();
+        updatedContract.setId(id);
+        updatedContract.setStatus(existingContract.getStatus());
+
+        contractRepository.save(updatedContract);
+        return "Contract updated successfully";
+    }
 
 
 }

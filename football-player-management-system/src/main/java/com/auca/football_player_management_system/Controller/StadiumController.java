@@ -30,7 +30,7 @@ public class StadiumController {
     @PostMapping("/save")
     public ResponseEntity<String> saveStadium(@RequestBody Stadium stadium){
         stadiumService.saveStadium(stadium);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Stadium saved successsfully");
+        return ResponseEntity.status(HttpStatus.CREATED).body("Stadium saved successfully");
     }
 
     // 2. get all Stadium

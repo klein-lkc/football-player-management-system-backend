@@ -31,7 +31,7 @@ public class CompetitionController {
     @PostMapping("/save")
     public ResponseEntity<String> saveCompetition(@RequestBody Competition competition){
         competitionService.saveCompetition(competition);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Competition saved successsfully");
+        return ResponseEntity.status(HttpStatus.CREATED).body("Competition saved successfully");
     }
 
     // 2. get all Competition

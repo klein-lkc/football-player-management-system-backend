@@ -29,15 +29,15 @@ public class PerformanceReportService {
     public String saveReport(UUID contractId, PerformanceReport report){
         Optional<Contract> contractOpt = contractRepository.findById(contractId);
         if(!contractOpt.isPresent()){
-            return "The contract with that id does exist";
+            return "The contract with that id does not exist";
         }
         Contract contract = contractOpt.get();
 
         // check only signed contracts
         if(contract.getStatus() != ContractStatus.SIGNED ){
-            return "Performance reports are only for signed contracts";
+            return "Performance reports are only for SIGNED contracts";
         }
-        report.setReportdate(LocalDate.now());
+        report.setReportDate(LocalDate.now());
         report.setContract(contract);
         performanceReportRepository.save(report);
 

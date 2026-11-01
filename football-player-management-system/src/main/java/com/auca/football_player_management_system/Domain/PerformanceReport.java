@@ -21,7 +21,7 @@ public class PerformanceReport {
     private String testName;
     private String comments;
     private int score;
-    private LocalDate reportdate;
+    private LocalDate reportDate;
 
     @ManyToOne
     @JoinColumn(name = "contract_id")
@@ -59,12 +59,12 @@ public class PerformanceReport {
         this.score = score;
     }
 
-    public LocalDate getReportdate() {
-        return reportdate;
+    public LocalDate getReportDate() {
+        return reportDate;
     }
 
-    public void setReportdate(LocalDate reportdate) {
-        this.reportdate = reportdate;
+    public void setReportDate(LocalDate reportDate) {
+        this.reportDate = reportDate;
     }
 
     public Contract getContract() {

@@ -36,7 +36,7 @@ public class PlayerController {
     @PostMapping("/save")
     public ResponseEntity<String> savePlayer(@RequestBody Player player){
         playerService.savePlayer(player);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Player saved successsfully");
+        return ResponseEntity.status(HttpStatus.CREATED).body("Player saved successfully");
     }
 
     // 2. get all player
